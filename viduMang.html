@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    #demo{
+    color: blueviolet;
+
+    } 
+    #demo li:hover{
+        color: rgb(240, 31, 31);
+    }
+     </style>
+</head>
+<body>
+    <h2>fruit list</h2>
+    <p id="demo"></p>
+    <script>
+        var fruit, text, flen, i;
+        fruit = ["Banana", "Orange", "Apple", "Mango"];
+        flen = fruit.length;
+        text = "<ul>";
+
+            for (i = 0; i< flen; i++){
+                text += "<li>" + fruit[i] + "</li>";
+            }
+            text += "</ul>";
+            document.getElementById("demo").innerHTML = text;
+
+
+    </script>
+</body>
+</html>

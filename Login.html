@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+</head>
+<body>
+    <h1> User Login </h1>
+    <div>
+        <label> User Name <br/>
+        <input type="text" size="32" id="txt1"/>
+        </label>
+    </div>
+    <div>
+        <label >
+            Password <br/>
+            <input type="text" size="32" id="txt2"/>
+        </label>
+    </div>
+    <div>
+        <button type="button" onclick="login()">Login</button>
+        <button type="button" onclick="cancle()">Cancle</button>
+    </div>
+    <div id="sms"></div>
+    <script type="text/javascript">
+        //arrays of user names and password
+         var usernames = ["admin", "author", "guest"];
+         var password = ["321", "abc", "xyz"];
+         //user name is: admin
+         //password is: 123
+
+         function login()
+         {
+            //get user name from user input
+            var username = document.getElementById("txt1").value;
+            // get password from user input	
+            var password = document.getElementById("txt2").value;
+            //a variable to store error message
+            var sms ="";
+            //loop through the usernames
+            for(var i=0;i<usernames.length;i++)	
+            {
+                if(username==usernames[i])	   
+                {
+                    sms="";
+                    	// compare password for the correct username	
+                        if(password==passwords[i])	{
+                     	// redirect user to google.com	
+                            location.href="https://www.google.com/";	      
+                        } 
+                        else {
+                            sms ="Invalid password!";	       
+                        }  
+                        break; // exit the loop	
+                }    
+                else{
+                    sms ="Invalid username!";	
+                }
+            }
+            document.getElementById("sms").innerHTML = sms;		          	
+         }
+  	// clear the form when user hit on clear button	
+      function cancel()	
+         {
+            document.getElementById("txt1").value="";	
+		
+            document.getElementById("txt2").value="";	
+            
+            document.getElementById("txt1").focus();	        
+         }  
+
+    </script>
+ 
+</body>
+</html>l
