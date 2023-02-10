@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <style>
+        body{
+            border: 2px solid rgb(20, 4, 4);
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            margin: auto;
+            padding-top:60px ;
+            padding-bottom:0px ;
+        }
+    </style>
+</head>
+<body>
+    <h3>CHAO MUNG BAN DEN VOI QUAN CUA TOI</h3><br><br>
+<pre>
+<div id="oder-weater-fruid">
+Nhập 1: THỨC UỐNG
+Nhập 2: TRÁI CÂY
+Vui lòng chọn số: <input id="chose" type="number" name="" value="">
+</div>
+<button onclick="Ok()">Ok</button><br>
+</pre>
+
+
+<div id="select-weater"> Chọn món mà bạn muốn: <select name="" id="weater">
+    <option value="">Vui lòng chọn</option>
+    <option value="">Nước suối</option>
+    <option value="">Coca cola</option>
+    <option value="">Seven up</option>
+    <option value="">Pessi</option>
+    <option value="">Cam ép</option>
+    <option value="">Sting </option>
+    <option value="">Bò húc</option>
+    </select>
+</div>
+<br>
+<br>
+<div id="select-fruid">Chọn Trái Cây: <select id="fruid">
+    <option value="">Vui lòng chọn</option>
+    <option value="">Trái cây nhỏ</option>
+    <option value="">Trái cây lớn</option>
+    <option value="">Bưởi</option>
+    </select>
+</div> 
+<br>
+<br>
+<div id="input_money">
+Nhập số tiền mà bạn gửi nv: <input id="price" type="number" name="" value="" placeholder="Nhập số tiền mà bạn gửi nv: ">
+</div>
+<br>
+<pre>
+    <div id="decice-buy-cancel">
+        <button onclick="Mybuy()">Mua</button> <button onclick="Mycancel()">Hủy</button>
+    </div>
+</pre>
+<div id="include">
+Hóa Đơn : <p id="inclu"></p>
+</div>
+</body>
+<script type="text/javascript">
+    var book=document.getElementById("select-fruid");
+    var oder= document.getElementById("select-weater");
+    var money=document.getElementById("input_money");
+    var buy_cancel=document.getElementById("decice-buy-cancel")
+    var ketluan=document.getElementById("include");
+    book.style.display=("none");
+    oder.style.display=("none");
+    money.style.display=("none");
+    buy_cancel.style.display=("none");
+    ketluan.style.display=("none");
+  function Ok(){
+    var chon=document.getElementById("chose").value;
+    var book=document.getElementById("select-fruid");
+    var oder= document.getElementById("select-weater");
+    if(chon==1){
+        book.style.display=("none");
+        oder.style.display=("block");
+        money.style.display=("block");
+        buy_cancel.style.display=("block");
+        ketluan.style.display=("block");
+    }else if(chon==2){
+        oder.style.display=("none");
+        book.style.display=("block");
+        money.style.display=("block");
+        buy_cancel.style.display=("block");
+        ketluan.style.display=("block");
+    }else{
+        alert("Vui lòng nhập đúng số")
+    }
+  }
+    function Mybuy(){
+        var price=document.getElementById("price").value;
+        var oder= document.getElementById("weater");
+        var giaTri = oder.options[oder.selectedIndex].text;
+        var book=document.getElementById("fruid");
+        var valu=book.options[book.selectedIndex].text;
+        var chon=document.getElementById("chose").value;
+        if(chon==1){
+            switch(giaTri) {
+            case "Nước Suối":
+                if(price<15000){
+                    alert("Bạn đã hết tiền rồi ư! Hay là bạn đã quên?")
+                }else{
+                    var retur=price-15000;
+                    document.getElementById("inclu").innerHTML="Sản phẩm bạn mua là: "+giaTri+  " Có giá là: "+ 15000 +" Số tiền của bạn: "+ price +" Tiền còn dư của bạn là: "+retur
+                }
+                break;
+                          
+            case "COCA COLA":
+            case "7 Up":
+            case "PESSI":
+            case "CAM ÉP":
+            case "STING":
+            if(price<17000){
+                    alert("Bạn đã hết tiền rồi ư! Hay là bạn đã quên?")
+                }else{
+                    var retur=price-17000;
+                    document.getElementById("inclu").innerHTML="Sản phẩm bạn mua là: "+giaTri +"\n \ "+ " Có giá là: "+ 17000 +" Số tiền của bạn: "+ price + "\n \ "+"Tiền còn dư của bạn là: "+retur
+                }
+                break;
+            case "Bò húc":
+            if(price<20000){
+                    alert("Bạn đã hết tiền rồi ư! Hay là bạn đã quên?")
+                }else{
+                    var retur=price-20000;
+                    document.getElementById("inclu").innerHTML="Sản phẩm bạn mua là: "+giaTri +"\n \ "+ " Có giá là: "+ 20000 +" Số tiền của bạn: "+ price + "\n \ "+"Tiền còn dư của bạn là: "+retur
+                }
+                break;
+            case "Vui lòng chọn":
+                alert("Bạn chưa chọn đồ uống")
+                break;
+            default:
+                break;
+             }
+        }else{
+            switch (valu) {
+            case "Trái Cây Lớn":
+                if(price<12900){
+                        alert("Bạn đã hết tiền rồi ư! Hay là bạn đã quên?")
+                    }else{
+                        var retur=price-12900;
+                        document.getElementById("inclu").innerHTML="Sản phẩm bạn mua là: "+valu +"\n \ "+ " Có giá là: "+ 12900 +" Số tiền của bạn: "+ price + "\n \ "+"Tiền còn dư của bạn là: "+retur
+                    }
+                    break;
+            case "Trái Cây Nhỏ":
+                if(price<99000){
+                        alert("Bạn đã hết tiền rồi ư! Hay là bạn đã quên?")
+                    }else{
+                        var retur=price-99000;
+                        document.getElementById("inclu").innerHTML="Sản phẩm bạn mua là: "+valu +"\n \ "+ " Có giá là: "+ 99000 +" Số tiền của bạn: "+ price + "\n \ "+"Tiền còn dư của bạn là: "+retur
+                    }
+                    break;
+            case "BƯỞI":
+                if(price<18900){
+                        alert("Bạn đã hết tiền rồi ư! Hay là bạn đã quên?")
+                    }else{
+                        var retur=price-18900;
+                        document.getElementById("inclu").innerHTML="Sản phẩm bạn mua là: "+valu+"\n \ "+ " Có giá là: "+ 18900 +" Số tiền của bạn: "+ price + "\n \ "+"Tiền còn dư của bạn là: "+retur
+                    }
+                    break;
+            case "Vui lòng chọn":
+                alert("Bạn chưa chọn đồ uống")
+                break;
+            default:
+                break;
+        }
+        }
+    }
+    function Mycancel(){
+        alert("Cảm ơn bạn đã ghé thăm")
+    }
+</script>
+</body>
+</html>

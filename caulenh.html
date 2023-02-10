@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau lenh if </title>
+</head>
+<body>
+    <p>
+        Danh sach cac loai nuoc uong cua ThuTran quan!
+    </p>
+    <input type="number" name=""  id="nhap">
+    <button onclick="myFumction()">Try it</button>
+    <p id="demo"></p>
+    <script>
+    function myFumction(){
+        var number=document.getElementById("nhap").value;
+        var greeting;
+        if (number==0){
+            greeting="Bạn được 0 điểm";
+        }
+        else if (number>0){
+            greeting="Đó là số dương";
+        }
+        else {
+            greeting="Đây là số âm";
+        }
+        document.getElementById("demo").innerHTML=greeting;
+    }
+    </script>
+</body>
+</html>

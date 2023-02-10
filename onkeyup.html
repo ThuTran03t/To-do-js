@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> Tinh tong trong onkeyup </p>
+
+    Enter your name: <input type="text" id="fname" onkeyup="myFunction()">
+    Enter your name: <input type="text" id="fusername" onkeyup="myFunction()">
+    <p> My name is: <span id="demo"></span></p>
+
+    <script>
+    function myFunction() {
+        var x= parseInt(document.getElementById("fname").value);
+        var y= parseInt(document.getElementById("fusername").value);  
+        document.getElementById("demo").innerHTML=x+y;
+        }
+    </script>
+</body>
+</html>
