@@ -4,114 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        img{
-            width: 150px;
-            height: 100px;
+    <title>Product Management</title>
+            
+    <script>
+        var  header ='<table border="1"><tr><th>No</th><td>Name</td><td>Quantity</td><td>Price</td><td>Sub-total</td></tr>';
+        var data ='';
+        var footer='</table>';
+        var total=0;
+        var no=1;
+        function productAdd(){
+            var path =document.frm_product;
+            var name= path.txt_name.value;
+            var quantity=path.txt_quantity.value;
+            var price =path.txt_price.value;
+            var sub_total=quantity*price;
+            total +=sub_total;
+            var  sub_data_one='<tr><th>'+no+'</th><td>'+name+'</td><td>'+quantity+'</td><td>'+price+'$</td><td>'+sub_total+'$</td></tr>';
+            var sub_data_two ='<tr><th colspan="4">Total</th><td>'+total+'</td></tr>';
+            data +=sub_data_one;
+            document.getElementById('product_list').innerHTML=header+data+sub_data_two+footer;
+            no++;
         }
-        .box-img1{
-            position: absolute;
-            margin-top: 50px;
-            margin-left: 130px;    
-        }
-        .title1{
-            margin-left: 120px;
-            margin-top: 180px;
-        }
-        .price1{
-            margin-left: 180px; 
-        }
-        .box-img2{
-            position: absolute;
-            margin-top: -189px;
-            margin-left: 350px;
-        }
-        .title2 {
-            position: absolute;
-            margin-top: -85px;
-            margin-left: 330px;
-        }
-        .price2{
-            position: absolute;
-            margin-top: -50px;
-            margin-left: 390px;
-        }
-        .box-img3 {
-            position: absolute;
-            margin-top: -189px;
-            margin-left: 550px;
-        }
-        .title3{
-            position: absolute;
-            margin-top: -85px;
-            margin-left: 550px;
-        }
-        .price3{
-            position: absolute;
-            margin-top: -50px;
-            margin-left: 580px;
-        }
-		.box-img4 {
-            position: absolute;
-            margin-top: -189px;
-            margin-left: 750px;
-        }
-        .title4{
-            position: absolute;
-            margin-top: -85px;
-            margin-left: 730px;
-        }
-        .price4{
-            position: absolute;
-            margin-top: -50px;
-            margin-left: 790px;
-        }
-        h3{
-            text-align: center;
-        }
-    </style>
+    </script>
 </head>
 <body>
-    <h3>SẢN PHẨM CỦA CHÚNG TÔI</h3>
-        <script>
-            var ThoiTrang = [
-                {
-                    image: "<div class='box-img1'><img src='pic1.PNG' id='img'></div>",
-                    title: "<div class='title1'><p>Túi đựng laptop BackPack</p></div>",
-                    price: "<div class='price1'><p>300.000Đ</p></div>"
-                },
-                {
-                    image: "<div class='box-img2'><img src='pic2.PNG' id='img'></div>",
-                    title: "<div class='title2'><p>Thắt lưng quần jean mặt khóa <br> DJ625-CF</p></div>",
-                    price: "<div class='price2'><p>200.000Đ</p></div>"
-                },
-                {
-                    image: "<div class='box-img3'><img src='pic3.PNG' id='img'></div>",
-                    title: "<div class='title3'><p>Ví nam dáng cổ điển <br> VNTAN-31N</p></div>",
-                    price: "<div class='price3'><p>500.000Đ</p></div>"
-                },
-                {
-                    image: "<div class='box-img4'><img src='pic4.PNG' id='img'></div>",
-                    title: "<div class='title4'><p>Giày da nam buộc dây vân da <br> GNTA-2695N</p></div>",
-                    price: "<div class='price4'><p>500.000Đ</p></div>"
-                }
-            ]
-
-            for (z in ThoiTrang){
-                for(i in ThoiTrang){
-                    document.write(ThoiTrang[z].image);
-                    break;
-                }
-                for(i in ThoiTrang){
-                    document.write(ThoiTrang[z].title);
-                    break;
-                }
-                for(i in ThoiTrang){
-                    document.write(ThoiTrang[z].price);
-                    break;
-                break;
-            }}
-        </script>
+    <form name="frm_product" action="#"method="post">
+        Product Name: <input type="text" name="txt_name" value="">
+        <br> <br>
+        Product Quantity: <input type="text" name="txt_quantity" value="">
+        <br> <br>
+        Product Price: <input type="text" name="txt_price" value="">
+        <br> <br>
+        <input type="button" onclick="productAdd();" value="Add">
+        <div id="product_list"></div>
+    </form>
 </body>
 </html>
