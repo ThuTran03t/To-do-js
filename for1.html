@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            .square {
+                height: 20px;
+                width: 20px;
+                float: left;
+                border: 1px solid rgb(245, 242, 242);
+                background: rgb(243, 75, 8);
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+            .square1 {
+                height: 20px;
+                width: 20px;
+                float: left;
+                border: 1px solid rgb(248, 244, 244);
+                background: rgb(136, 136, 135);
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <?php
+        for ($i = 1; $i <= 5; $i++) {
+            for ($j = 1; $j <=  5; $j++) {
+                if ($i %2 ==0) {
+                    echo "<div id='square1'>";
+                } else {
+                    echo "<div id='square2'>";
+                }
+            }
+            echo "<br>";
+        }
+        ?>
+        
+    </body>
+</html>
